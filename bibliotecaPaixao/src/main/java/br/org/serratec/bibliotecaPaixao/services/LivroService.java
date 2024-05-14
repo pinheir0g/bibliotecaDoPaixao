@@ -11,35 +11,35 @@ import java.util.List;
 @Service
 public class LivroService {
 
-    @Autowired
-    LivroRepository livroRepository;
+	@Autowired
+	LivroRepository livroRepository;
 
-    public Livro save (Livro livro){
-        return livroRepository.save(livro);
-    }
+	public Livro save(Livro livro) {
+		return livroRepository.save(livro);
+	}
 
-    public Livro update (Livro livro){
-        return livroRepository.save(livro);
-    }
+	public Livro update(Livro livro) {
+		return livroRepository.save(livro);
+	}
 
-    public List<Livro> findAll (){
-        return livroRepository.findAll();
-    }
+	public List<Livro> findAll() {
+		return livroRepository.findAll();
+	}
 
-    public Livro findById (Integer id){
-        return livroRepository.findById(id).orElse(null);
-    }
+	public Livro findById(Integer id) {
+		return livroRepository.findById(id).orElse(null);
+	}
 
-    public Livro delete (Livro livro){
-        var livro0 = findById(livro.getLivroId());
-        try{
-            if(livro0 != null) {
-                livroRepository.delete(livro);
-                return livro0;
-            }
-        } catch (Exception e){
-            System.out.println(e);
-        }
-        return livro0;
-    }
+	public Livro delete(Livro livro) {
+		var livro0 = findById(livro.getLivroId());
+		try {
+			if (livro0 != null) {
+				livroRepository.delete(livro);
+				return livro0;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return livro0;
+	}
 }

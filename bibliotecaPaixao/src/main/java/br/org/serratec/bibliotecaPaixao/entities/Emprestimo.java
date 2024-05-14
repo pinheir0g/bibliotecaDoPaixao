@@ -12,31 +12,30 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="emprestimo")
+@Table(name = "emprestimo")
 public class Emprestimo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name= "emprestimo_id")
+	@Column(name = "emprestimo_id")
 	private Integer emprestimoId;
 
 	@ManyToOne
-	@JoinColumn(name= "aluno_matricula")
+	@JoinColumn(name = "aluno_matricula")
 	private Aluno aluno;
 
 	@ManyToOne
-	@JoinColumn(name= "livro_id")
+	@JoinColumn(name = "livro_id")
 	private Integer livroId;
 
-	@Column(name= "data_emprestimo")
+	@Column(name = "data_emprestimo")
 	private LocalDate dataEmprestimo;
 
-	@Column(name= "data_entrega")
+	@Column(name = "data_entrega")
 	private LocalDate dataEntrega;
 
-	@Column(name= "valor_emprestimo")
+	@Column(name = "valor_emprestimo")
 	private Double valorEmprestimo;
-
 
 	public Emprestimo() {
 		super();

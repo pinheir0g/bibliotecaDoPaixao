@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.org.serratec.bibliotecaPaixao.entities.Emprestimo;
 
-public interface EmprestimoRepository extends JpaRepository<Emprestimo, Integer>{
+public interface EmprestimoRepository extends JpaRepository<Emprestimo, Integer> {
 
 }
