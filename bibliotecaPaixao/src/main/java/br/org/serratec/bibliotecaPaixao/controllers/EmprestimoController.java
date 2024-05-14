@@ -1,4 +1,4 @@
-package controllers;
+package br.org.serratec.bibliotecaPaixao.controllers;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entities.Emprestimo;
-import services.EmprestimoService;
+import br.org.serratec.bibliotecaPaixao.entities.Emprestimo;
+import br.org.serratec.bibliotecaPaixao.services.EmprestimoService;
 
 @RestController
 @RequestMapping("/emprestimos")

@@ -1,11 +1,12 @@
-package services;
+package br.org.serratec.bibliotecaPaixao.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import entities.Emprestimo;
-import repositories.EmprestimoRepository;
+
+import br.org.serratec.bibliotecaPaixao.entities.Emprestimo;
+import br.org.serratec.bibliotecaPaixao.repositories.EmprestimoRepository;
 
 @Service
 public class EmprestimoService {

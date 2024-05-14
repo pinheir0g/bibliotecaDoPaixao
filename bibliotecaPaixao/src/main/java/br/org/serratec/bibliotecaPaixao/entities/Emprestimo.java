@@ -1,4 +1,4 @@
-package entities;
+package br.org.serratec.bibliotecaPaixao.entities;
 
 import java.time.LocalDate;
 
