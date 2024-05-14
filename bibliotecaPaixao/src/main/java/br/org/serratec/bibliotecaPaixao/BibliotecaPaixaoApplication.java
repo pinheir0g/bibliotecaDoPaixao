@@ -1,13 +1,13 @@
-package br.org.serratec.biblioteca;
+package br.org.serratec.bibliotecaPaixao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BibliotecaApplication {
+public class BibliotecaPaixaoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BibliotecaApplication.class, args);
+		SpringApplication.run(BibliotecaPaixaoApplication.class, args);
 	}
 
 }
