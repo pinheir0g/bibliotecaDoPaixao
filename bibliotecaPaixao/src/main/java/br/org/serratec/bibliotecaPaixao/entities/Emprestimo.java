@@ -100,5 +100,4 @@ public class Emprestimo {
 	public void setValorEmprestimo(Double valorEmprestimo) {
 		this.valorEmprestimo = valorEmprestimo;
 	}
-
 }

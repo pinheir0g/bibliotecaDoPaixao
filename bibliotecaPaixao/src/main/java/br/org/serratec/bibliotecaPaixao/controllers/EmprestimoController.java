@@ -56,7 +56,7 @@ public class EmprestimoController {
 		if(emprestimoService.findById(id) != null) {
 			return ResponseEntity.status(HttpStatus.OK).body(emprestimoService.findById(id));
 		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado'}");
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado!'}");
 	}
 
 	@DeleteMapping
@@ -64,7 +64,7 @@ public class EmprestimoController {
 		if (emprestimoService.findById(emprestimo.getEmprestimoId()) != null) {
 			return ResponseEntity.status(HttpStatus.OK).body(emprestimoService.delete(emprestimo));
 		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado'}");
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado!'}");
 	}
 
 	@DeleteMapping("/{id}")
@@ -72,6 +72,6 @@ public class EmprestimoController {
 		if (emprestimoService.findById(id) != null) {
 			return ResponseEntity.status(HttpStatus.OK).body(emprestimoService.deleteById(id));
 		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado'}");
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado!'}");
 	}
 }
