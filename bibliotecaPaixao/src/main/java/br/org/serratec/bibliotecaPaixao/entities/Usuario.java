@@ -1,4 +1,4 @@
-package entities;
+package br.org.serratec.bibliotecaPaixao.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -96,4 +96,3 @@ public class Usuario {
 
 	
 }
-

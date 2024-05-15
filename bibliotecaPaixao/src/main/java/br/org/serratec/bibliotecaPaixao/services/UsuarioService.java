@@ -1,12 +1,12 @@
-package services;
+package br.org.serratec.bibliotecaPaixao.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import entities.Usuario;
-import repositories.UsuarioRepository;
+import br.org.serratec.bibliotecaPaixao.entities.Usuario;
+import br.org.serratec.bibliotecaPaixao.repositories.UsuarioRepository;
 
 @Service
 public class UsuarioService {

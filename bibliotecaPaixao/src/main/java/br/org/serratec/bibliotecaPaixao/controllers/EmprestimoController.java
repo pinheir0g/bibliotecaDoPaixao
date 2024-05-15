@@ -1,4 +1,4 @@
-package controllers;
+package br.org.serratec.bibliotecaPaixao.controllers;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entities.Emprestimo;
-import services.EmprestimoService;
+import br.org.serratec.bibliotecaPaixao.entities.Emprestimo;
+import br.org.serratec.bibliotecaPaixao.services.EmprestimoService;
 
 @RestController
 @RequestMapping("/emprestimos")
@@ -25,53 +25,53 @@ public class EmprestimoController {
 	EmprestimoService emprestimoService;
 
 	@PostMapping
-	public ResponseEntity<Emprestimo> save(@RequestBody Emprestimo emprestimo){
+	public ResponseEntity<Emprestimo> save(@RequestBody Emprestimo emprestimo) {
 		try {
 			emprestimoService.save(emprestimo);
 			return new ResponseEntity<>(emprestimo, HttpStatus.CREATED);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return new ResponseEntity<>(emprestimo, HttpStatus.BAD_REQUEST);
 	}
 
 	@PutMapping
-	public ResponseEntity<Emprestimo> update(@RequestBody Emprestimo emprestimo){
+	public ResponseEntity<Emprestimo> update(@RequestBody Emprestimo emprestimo) {
 		try {
 			emprestimoService.update(emprestimo);
 			return new ResponseEntity<>(emprestimo, HttpStatus.CREATED);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return new ResponseEntity<>(emprestimo, HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping
-	public ResponseEntity<List<Emprestimo>> findAll(){
+	public ResponseEntity<List<Emprestimo>> findAll() {
 		return new ResponseEntity<>(emprestimoService.findAll(), HttpStatus.OK);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Object> findById(@PathVariable Integer id){
-		if(emprestimoService.findById(id) != null) {
+	public ResponseEntity<Object> findById(@PathVariable Integer id) {
+		if (emprestimoService.findById(id) != null) {
 			return ResponseEntity.status(HttpStatus.OK).body(emprestimoService.findById(id));
 		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado'}");
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado!'}");
 	}
 
 	@DeleteMapping
-	public ResponseEntity<Object> delete(@RequestBody Emprestimo emprestimo){
+	public ResponseEntity<Object> delete(@RequestBody Emprestimo emprestimo) {
 		if (emprestimoService.findById(emprestimo.getEmprestimoId()) != null) {
 			return ResponseEntity.status(HttpStatus.OK).body(emprestimoService.delete(emprestimo));
 		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado'}");
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado!'}");
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Object> deleteById(@PathVariable Integer id){
+	public ResponseEntity<Object> deleteById(@PathVariable Integer id) {
 		if (emprestimoService.findById(id) != null) {
 			return ResponseEntity.status(HttpStatus.OK).body(emprestimoService.deleteById(id));
 		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado'}");
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Emprestimo não encontrado!'}");
 	}
 }

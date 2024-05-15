@@ -1,8 +1,9 @@
-package repositories;
+package br.org.serratec.bibliotecaPaixao.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import entities.Usuario;
+import br.org.serratec.bibliotecaPaixao.entities.Usuario;
+
 
 public interface UsuarioRepository
 	extends JpaRepository<Usuario, Integer> {

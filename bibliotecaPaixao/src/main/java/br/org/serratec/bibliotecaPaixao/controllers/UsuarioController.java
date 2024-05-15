@@ -1,4 +1,4 @@
-package controllers;
+package br.org.serratec.bibliotecaPaixao.controllers;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entities.Usuario;
-import services.UsuarioService;
+import br.org.serratec.bibliotecaPaixao.entities.Usuario;
+import br.org.serratec.bibliotecaPaixao.services.UsuarioService;
 
 @RestController
 @RequestMapping("/usuarios")
