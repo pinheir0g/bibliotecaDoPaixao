@@ -1,2 +1,3 @@
 # Biblioteca do Paixão
-A biblioteca mais amorosa do Spring Boot
+
+API em Java + Spring Boot para controle de empréstimos de livros
