@@ -20,14 +20,6 @@ public class Emprestimo {
 	@Column(name = "emprestimo_id")
 	private Integer emprestimoId;
 
-	@ManyToOne
-	@JoinColumn(name = "aluno_matricula")
-	private Aluno aluno;
-
-	@ManyToOne
-	@JoinColumn(name = "livro_id")
-	private Livro livro;
-
 	@Column(name = "data_emprestimo")
 	private LocalDate dataEmprestimo;
 
@@ -37,19 +29,27 @@ public class Emprestimo {
 	@Column(name = "valor_emprestimo")
 	private Double valorEmprestimo;
 
+	@ManyToOne
+	@JoinColumn(name = "aluno_matricula")
+	private Aluno aluno;
+
+	@ManyToOne
+	@JoinColumn(name = "livro_id", referencedColumnName = "livro_id")
+	private Livro livro;
+
 	public Emprestimo() {
 		super();
 	}
 
-	public Emprestimo(Integer emprestimoId, Aluno aluno, Livro livro, LocalDate dataEmprestimo,
-			LocalDate dataEntrega, Double valorEmprestimo) {
+	public Emprestimo(Integer emprestimoId, LocalDate dataEmprestimo, LocalDate dataEntrega, Double valorEmprestimo,
+			Aluno aluno, Livro livro) {
 		super();
 		this.emprestimoId = emprestimoId;
-		this.aluno = aluno;
-		this.livro = livro;
 		this.dataEmprestimo = dataEmprestimo;
 		this.dataEntrega = dataEntrega;
 		this.valorEmprestimo = valorEmprestimo;
+		this.aluno = aluno;
+		this.livro = livro;
 	}
 
 	public Integer getEmprestimoId() {
@@ -58,22 +58,6 @@ public class Emprestimo {
 
 	public void setEmprestimoId(Integer emprestimoId) {
 		this.emprestimoId = emprestimoId;
-	}
-
-	public Aluno getAluno() {
-		return aluno;
-	}
-
-	public void setAlunoMatricula(Aluno aluno) {
-		this.aluno = aluno;
-	}
-
-	public Livro getLivroId() {
-		return livro;
-	}
-
-	public void setLivroId(Livro livro) {
-		this.livro = livro;
 	}
 
 	public LocalDate getDataEmprestimo() {
@@ -99,4 +83,22 @@ public class Emprestimo {
 	public void setValorEmprestimo(Double valorEmprestimo) {
 		this.valorEmprestimo = valorEmprestimo;
 	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+
+
 }

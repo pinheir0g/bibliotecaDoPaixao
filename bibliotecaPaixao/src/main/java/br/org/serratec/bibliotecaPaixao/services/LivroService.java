@@ -42,4 +42,16 @@ public class LivroService {
 		}
 		return livro0;
 	}
+	public Livro deleteById(Integer id) {
+		Livro livro = livroRepository.findById(id).orElse(null);
+		try {
+			if (livro != null) {
+				livroRepository.deleteById(id);
+				return livro;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return livro;
+	}
 }

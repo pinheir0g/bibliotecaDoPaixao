@@ -25,14 +25,8 @@ public class EmprestimoController {
 	EmprestimoService emprestimoService;
 
 	@PostMapping
-	public ResponseEntity<Emprestimo> save(@RequestBody Emprestimo emprestimo) {
-		try {
-			emprestimoService.save(emprestimo);
-			return new ResponseEntity<>(emprestimo, HttpStatus.CREATED);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new ResponseEntity<>(emprestimo, HttpStatus.BAD_REQUEST);
+	public ResponseEntity<Object> save(@RequestBody Emprestimo emprestimo) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(emprestimoService.save(emprestimo));
 	}
 
 	@PutMapping
