@@ -32,7 +32,7 @@ public class Livro {
 	@JoinColumn(name = "editora_id")
 	private Editora editora;
 
-	@OneToMany
+	@OneToMany(mappedBy="livro")
 	private List<Emprestimo> emprestimos;
 
 	public Integer getLivroId() {

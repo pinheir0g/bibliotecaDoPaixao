@@ -28,7 +28,7 @@ public class AlunoService {
 		return alunoRepository.findById(id).orElse(null);
 	}
 	public Aluno delete(Aluno aluno) {
-		var aluno0 = findById(aluno.getAluno_matricula());
+		var aluno0 = findById(aluno.getAlunoMatricula());
 		try {
 			if (aluno0 != null) {
 				alunoRepository.delete(aluno);
@@ -39,5 +39,5 @@ public class AlunoService {
 		}
 		return aluno0;
 	}
-	
+
 }

@@ -12,28 +12,28 @@ public class EditoraService {
 
 	@Autowired
 	private EditoraRepository editoraRepository;
-	
+
 	public List<Editora> findAll(){
 		return editoraRepository.findAll();
 	}
-	
+
 	public Editora findById(Integer id) {
 		return editoraRepository.findById(id).orElse(null);
 	}
-	
+
 	public Editora save(Editora editora) {
 		return editoraRepository.save(editora);
 	}
-	
+
 	public Editora update(Editora editora) {
 		return editoraRepository.save(editora);
 	}
-	
+
 	public Editora delete(Editora editora) {
 		Editora editoraExcluido = editoraRepository.findById(editora.getEditoraId()).orElse(null);
 		try {
-			editoraRepository.delete(editoraExcluido);
 			if(editoraExcluido != null) {
+				editoraRepository.delete(editoraExcluido);
 				return editoraExcluido;
 			}
 		}catch(Exception e) {
@@ -41,12 +41,12 @@ public class EditoraService {
 		}
 		return editoraExcluido;
 	}
-	
+
 	public Editora deleteById(Integer id) {
 		Editora editoraExcluido = editoraRepository.findById(id).orElse(null);
 		try {
-			editoraRepository.delete(editoraExcluido);
 			if(editoraExcluido != null) {
+				editoraRepository.delete(editoraExcluido);
 				return editoraExcluido;
 			}
 		}catch(Exception e) {
@@ -54,10 +54,8 @@ public class EditoraService {
 		}
 		return editoraExcluido;
 	}
-	
+
 	public long count() {
 		return editoraRepository.count();
 	}
-	
-	
 }

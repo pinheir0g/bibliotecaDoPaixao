@@ -1,25 +1,28 @@
 package br.org.serratec.bibliotecaPaixao.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "public.aluno")
+@Table(name = "aluno")
 public class Aluno {
 
 	@Id
-	@Column(name = "aluno_matricula")
-	private Integer aluno_matricula;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "alunoMatricula")
+	private Integer alunoMatricula;
 
 	@Column(name = "nome")
 	private String nome;
 
-	@Column(name = "dat_anascimento")
-	private Date data_nascimento;
+	@Column(name = "data_nascimento")
+	private LocalDate dataNascimento;
 
 	@Column(name = "cpf")
 	private String cpf;
@@ -28,7 +31,7 @@ public class Aluno {
 	private String logradouro;
 
 	@Column(name = "numero_logradouro")
-	private String numero_logadouro;
+	private String numeroLogadouro;
 
 	@Column(name = "complemento")
 	private String complemento;
@@ -39,31 +42,30 @@ public class Aluno {
 	@Column(name = "cidade")
 	private String cidade;
 
-	
 	public Aluno() {
 		super();
 	}
 
-	public Aluno(int aluno_matricula, String nome, Date data_nascimento, String cpf, String logradouro,
-			String numero_logadouro, String complemento, String bairro, String cidade) {
+	public Aluno(int alunoMatricula, String nome, LocalDate dataNascimento, String cpf, String logradouro,
+			String numeroLogadouro, String complemento, String bairro, String cidade) {
 		super();
-		this.aluno_matricula = aluno_matricula;
+		this.alunoMatricula = alunoMatricula;
 		this.nome = nome;
-		this.data_nascimento = data_nascimento;
+		this.dataNascimento = dataNascimento;
 		this.cpf = cpf;
 		this.logradouro = logradouro;
-		this.numero_logadouro = numero_logadouro;
+		this.numeroLogadouro = numeroLogadouro;
 		this.complemento = complemento;
 		this.bairro = bairro;
 		this.cidade = cidade;
 	}
 
-	public Integer getAluno_matricula() {
-		return aluno_matricula;
+	public Integer getAlunoMatricula() {
+		return alunoMatricula;
 	}
 
-	public void setAluno_matricula(Integer aluno_matricula) {
-		this.aluno_matricula = aluno_matricula;
+	public void setAlunoMatricula(Integer alunoMatricula) {
+		this.alunoMatricula = alunoMatricula;
 	}
 
 	public String getNome() {
@@ -74,12 +76,12 @@ public class Aluno {
 		this.nome = nome;
 	}
 
-	public Date getData_nascimento() {
-		return data_nascimento;
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setData_nascimento(Date data_nascimento) {
-		this.data_nascimento = data_nascimento;
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getCpf() {
@@ -98,12 +100,12 @@ public class Aluno {
 		this.logradouro = logradouro;
 	}
 
-	public String getNumero_logadouro() {
-		return numero_logadouro;
+	public String getNumeroLogadouro() {
+		return numeroLogadouro;
 	}
 
-	public void setNumero_logadouro(String numero_logadouro) {
-		this.numero_logadouro = numero_logadouro;
+	public void setNumeroLogadouro(String numero_logadouro) {
+		this.numeroLogadouro = numero_logadouro;
 	}
 
 	public String getComplemento() {
@@ -129,5 +131,4 @@ public class Aluno {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-
 }
