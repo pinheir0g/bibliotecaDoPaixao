@@ -43,7 +43,7 @@ public class Livro {
 	@JoinColumn(name = "editora_id")
 	private Editora editora;
 
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "livro")
 	private List<Emprestimo> emprestimos;
 
