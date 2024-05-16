@@ -2,6 +2,8 @@ package br.org.serratec.bibliotecaPaixao.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="editora")
+@Table(name = "editora")
 public class Editora {
 
 	@Id
@@ -20,50 +22,72 @@ public class Editora {
 	private Integer editoraId;
 
 	@Column(name = "nome")
-	private Integer nome;
+	private String nome;
 
 	@Column(name = "imagem_nome")
-	private Integer imagemNome;
+	private String imagemNome;
 
 	@Column(name = "imagem_filename")
-	private Integer imagemFilename;
+	private String imagemFilename;
 
 	@Column(name = "imagem_url")
-	private Integer imagemUrl;
+	private String imagemUrl;
 
-	@OneToMany(mappedBy="editora")
+	@JsonIgnore
+	@OneToMany(mappedBy = "editora")
 	private List<Livro> livro;
 
+	public Editora() {
 
-	public Integer getNome() {
+	}
+
+	public Editora(Integer editoraId, String nome, String imagemNome, String imagemFilename, String imagemUrl,
+			List<Livro> livro) {
+		this.editoraId = editoraId;
+		this.nome = nome;
+		this.imagemNome = imagemNome;
+		this.imagemFilename = imagemFilename;
+		this.imagemUrl = imagemUrl;
+		this.livro = livro;
+	}
+
+	public Integer getEditoraId() {
+		return editoraId;
+	}
+
+	public void setEditoraId(Integer editoraId) {
+		this.editoraId = editoraId;
+	}
+
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(Integer nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public Integer getImagemNome() {
+	public String getImagemNome() {
 		return imagemNome;
 	}
 
-	public void setImagemNome(Integer imagemNome) {
+	public void setImagemNome(String imagemNome) {
 		this.imagemNome = imagemNome;
 	}
 
-	public Integer getImagemFilename() {
+	public String getImagemFilename() {
 		return imagemFilename;
 	}
 
-	public void setImagemFilename(Integer imagemFilename) {
+	public void setImagemFilename(String imagemFilename) {
 		this.imagemFilename = imagemFilename;
 	}
 
-	public Integer getImagemUrl() {
+	public String getImagemUrl() {
 		return imagemUrl;
 	}
 
-	public void setImagemUrl(Integer imagemUrl) {
+	public void setImagemUrl(String imagemUrl) {
 		this.imagemUrl = imagemUrl;
 	}
 
@@ -75,7 +99,5 @@ public class Editora {
 		this.livro = livro;
 	}
 
-	public Integer getEditoraId() {
-		return editoraId;
-	}
+
 }

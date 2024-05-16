@@ -9,31 +9,30 @@ import br.org.serratec.bibliotecaPaixao.repositories.PerfilRepository;
 
 @Service
 public class PerfilService {
-	
+
 	@Autowired
 	PerfilRepository perfilRepository;
 
 	public List<Perfil> findAll() {
 		return perfilRepository.findAll();
 	}
-	
+
 	public Perfil findById(Integer id) {
 		return perfilRepository.findById(id).orElse(null);
 	}
-	
+
 	public Perfil save(Perfil perfil) {
 		return perfilRepository.save(perfil);
 	}
-	
+
 	public Perfil update(Perfil perfil) {
 		return perfilRepository.save(perfil);
 	}
-		
+
 	public Perfil deletePerfil(Perfil perfil) {
-		
-		try {	
+		try {
 			if(perfilRepository.existsById(perfil.getPerfilID())) {
-		
+
 			perfilRepository.deleteById(perfil.getPerfilID());
 			return perfil;
 			}
@@ -42,7 +41,7 @@ public class PerfilService {
 		}
 		return perfil;
 	}
-	
+
 	public Perfil deleteById(Integer id) {
 		Perfil perfil = perfilRepository.findById(id).orElse(null);
 		try {
@@ -55,10 +54,10 @@ public class PerfilService {
 		}
 		return perfil;
 	}
-	
+
 	public long count() {
 		return perfilRepository.count();
 	}
-	
+
 }
 

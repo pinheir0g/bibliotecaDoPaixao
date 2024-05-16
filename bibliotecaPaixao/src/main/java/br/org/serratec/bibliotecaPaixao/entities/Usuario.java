@@ -12,38 +12,35 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-/*
-	PRIMARY KEY (user_id)
- */
-
 @Entity
 @Table(name = "usuario")
 @JsonIdentityInfo(
-		generator = ObjectIdGenerators.PropertyGenerator.class,
-		property = "userId",
-		scope = Usuario.class
-		)
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "userId",
+        scope = Usuario.class
+        )
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Integer userId;
-	
+
 	@Column(name = "user_nome")
 	private String userNome;
-	
+
 	@Column(name = "user_email", unique = true)
 	private String userEmail;
-	
+
 	@Column(name = "user_password")
 	private String userPassword;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "perfil_id", referencedColumnName = "perfil_id")
+	@JoinColumn(name = "perfil_id")
 	private Perfil perfil;
-	
+
 	public Usuario() {
+		super();
 	}
 
 	public Usuario(Integer userId, String userNome, String userEmail, String userPassword, Perfil perfil) {
@@ -94,5 +91,5 @@ public class Usuario {
 		this.perfil = perfil;
 	}
 
-	
+
 }

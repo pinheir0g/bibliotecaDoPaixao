@@ -28,15 +28,15 @@ public class AlunoService {
 	public Aluno findById(Integer id) {
 		return alunoRepository.findById(id).orElse(null);
 	}
-	public Aluno delete(Aluno aluno) {
-		var aluno0 = findById(aluno.getAlunoMatricula());
+	public Aluno deleteById(Integer id) {
+		var aluno0 = findById(id);
 		try {
 			if (aluno0 != null) {
-				alunoRepository.delete(aluno);
+				alunoRepository.delete(aluno0);
 				return aluno0;
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return aluno0;
 	}

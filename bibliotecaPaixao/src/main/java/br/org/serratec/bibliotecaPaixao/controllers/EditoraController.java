@@ -23,17 +23,17 @@ public class EditoraController {
 
 	@Autowired
 	EditoraService editoraService;
-	
+
 	@PostMapping
 	public ResponseEntity<Editora> saveEditora(@RequestBody Editora editora){
 		return ResponseEntity.status(HttpStatus.CREATED).body(editoraService.save(editora));
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<List<Editora>> findAll(){
 		return ResponseEntity.status(HttpStatus.OK).body(editoraService.findAll());
 	}
-	
+
 	@GetMapping("/{id}")
 	public ResponseEntity<Object> findById(@PathVariable Integer id){
 		Editora editora = editoraService.findById(id);
@@ -42,20 +42,12 @@ public class EditoraController {
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Editora não encontrada'}");
 	}
-	
+
 	@PutMapping
 	public ResponseEntity<Editora> update(@RequestBody Editora editora){
 		return ResponseEntity.status(HttpStatus.OK).body(editoraService.update(editora));
 	}
-	
-	@DeleteMapping
-	public ResponseEntity<Object> delete(@RequestBody Editora editora){
-		if (editoraService.findById(editora.getEditoraId()) != null) {
-			return ResponseEntity.status(HttpStatus.OK).body(editoraService.delete(editora));
-		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Editora não encontrada'}");
-	}
-	
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> deleteById(@PathVariable Integer id){
 		if (editoraService.findById(id) != null) {
@@ -63,7 +55,4 @@ public class EditoraController {
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Editora não encontrada'}");
 	}
-	
-	
-	
 }

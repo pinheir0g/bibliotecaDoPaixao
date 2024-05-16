@@ -1,16 +1,27 @@
 package br.org.serratec.bibliotecaPaixao.entities;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "livro")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "livroId", scope = Livro.class)
 public class Livro {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "livro_id")
@@ -26,14 +37,29 @@ public class Livro {
 	private LocalDate dataLancamento;
 
 	@Column(name = "codigo_isbn")
-	private String codigoIsbn;
+	private Integer codigoIsbn;
 
 	@ManyToOne
 	@JoinColumn(name = "editora_id")
 	private Editora editora;
 
-	@OneToMany(mappedBy="livro")
+	@JsonIgnore
+	@OneToMany(mappedBy = "livro")
 	private List<Emprestimo> emprestimos;
+
+	public Livro() {
+	}
+
+	public Livro(Integer livroId, String nomeLivro, String nomeAutor, LocalDate dataLancamento, Integer codigoIsbn,
+			Editora editora, List<Emprestimo> emprestimos) {
+		this.livroId = livroId;
+		this.nomeLivro = nomeLivro;
+		this.nomeAutor = nomeAutor;
+		this.dataLancamento = dataLancamento;
+		this.codigoIsbn = codigoIsbn;
+		this.editora = editora;
+		this.emprestimos = emprestimos;
+	}
 
 	public Integer getLivroId() {
 		return livroId;
@@ -63,11 +89,11 @@ public class Livro {
 		this.dataLancamento = dataLancamento;
 	}
 
-	public String getCodigoIsbn() {
+	public Integer getCodigoIsbn() {
 		return codigoIsbn;
 	}
 
-	public void setCodigoIsbn(String codigoIsbn) {
+	public void setCodigoIsbn(Integer codigoIsbn) {
 		this.codigoIsbn = codigoIsbn;
 	}
 

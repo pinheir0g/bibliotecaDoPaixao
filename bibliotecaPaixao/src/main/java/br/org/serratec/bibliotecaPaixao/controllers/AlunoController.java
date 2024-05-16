@@ -44,10 +44,10 @@ public class AlunoController {
 		return ResponseEntity.status(HttpStatus.OK).body(alunoService.findById(id));
 	}
 
-	@DeleteMapping
-	public ResponseEntity<Object> delete(@RequestBody Aluno aluno) {
-		if (alunoService.findById(aluno.getAlunoMatricula()) != null) {
-			return ResponseEntity.status(HttpStatus.OK).body(alunoService.delete(aluno));
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Object> deleteById(@PathVariable Integer id) {
+		if (alunoService.findById(id) != null) {
+			return ResponseEntity.status(HttpStatus.OK).body(alunoService.deleteById(id));
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{'Error': 'Aluno não encontrado'}");
 	}

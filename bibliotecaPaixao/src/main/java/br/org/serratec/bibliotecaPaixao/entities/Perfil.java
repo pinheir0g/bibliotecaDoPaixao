@@ -13,18 +13,21 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "perfil")
 public class Perfil {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "perfil_id")
 	private Integer perfilID;
+
 	@Column(name = "nome")
 	private String nome;
+
 	@Column(name = "descricao")
 	private String descricao;
-	@OneToMany(mappedBy="perfil")
+
+	@OneToMany(mappedBy = "perfil")
 	private List<Usuario> usuarios;
-	
-	
+
 	public Perfil() {
 	}
 
@@ -33,24 +36,37 @@ public class Perfil {
 		this.nome = nome;
 		this.descricao = descricao;
 	}
-	
+
 	public Integer getPerfilID() {
 		return perfilID;
 	}
+
 	public void setPerfilID(Integer perfilID) {
 		this.perfilID = perfilID;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public List<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	@Override
