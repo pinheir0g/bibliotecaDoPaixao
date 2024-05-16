@@ -9,7 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 /*
@@ -39,19 +39,19 @@ public class Usuario {
 	@Column(name = "user_password")
 	private String userPassword;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "perfil_id", referencedColumnName = "perfil_id")
-	private Perfil perfilId;
+	private Perfil perfil;
 	
 	public Usuario() {
 	}
 
-	public Usuario(Integer userId, String userNome, String userEmail, String userPassword, Perfil perfilId) {
+	public Usuario(Integer userId, String userNome, String userEmail, String userPassword, Perfil perfil) {
 		this.userId = userId;
 		this.userNome = userNome;
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
-		this.perfilId = perfilId;
+		this.perfil = perfil;
 	}
 
 	public Integer getUserId() {
@@ -86,12 +86,12 @@ public class Usuario {
 		this.userPassword = userPassword;
 	}
 
-	public Perfil getPerfilId() {
-		return perfilId;
+	public Perfil getperfil() {
+		return perfil;
 	}
 
-	public void setPerfilId(Perfil perfilId) {
-		this.perfilId = perfilId;
+	public void setperfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
 
 	

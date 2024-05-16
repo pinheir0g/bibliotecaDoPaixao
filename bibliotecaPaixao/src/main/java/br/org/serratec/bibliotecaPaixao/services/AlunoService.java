@@ -3,10 +3,11 @@ package br.org.serratec.bibliotecaPaixao.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.org.serratec.bibliotecaPaixao.entities.Aluno;
 import br.org.serratec.bibliotecaPaixao.repositories.AlunoRepository;
-
+@Service
 public class AlunoService {
 
 	@Autowired

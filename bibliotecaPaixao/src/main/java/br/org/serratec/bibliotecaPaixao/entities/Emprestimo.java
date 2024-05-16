@@ -26,7 +26,7 @@ public class Emprestimo {
 
 	@ManyToOne
 	@JoinColumn(name = "livro_id")
-	private Integer livroId;
+	private Livro livro;
 
 	@Column(name = "data_emprestimo")
 	private LocalDate dataEmprestimo;
@@ -41,12 +41,12 @@ public class Emprestimo {
 		super();
 	}
 
-	public Emprestimo(Integer emprestimoId, Aluno aluno, Integer livroId, LocalDate dataEmprestimo,
+	public Emprestimo(Integer emprestimoId, Aluno aluno, Livro livro, LocalDate dataEmprestimo,
 			LocalDate dataEntrega, Double valorEmprestimo) {
 		super();
 		this.emprestimoId = emprestimoId;
 		this.aluno = aluno;
-		this.livroId = livroId;
+		this.livro = livro;
 		this.dataEmprestimo = dataEmprestimo;
 		this.dataEntrega = dataEntrega;
 		this.valorEmprestimo = valorEmprestimo;
@@ -68,12 +68,12 @@ public class Emprestimo {
 		this.aluno = aluno;
 	}
 
-	public Integer getLivroId() {
-		return livroId;
+	public Livro getLivroId() {
+		return livro;
 	}
 
-	public void setLivroId(Integer livroId) {
-		this.livroId = livroId;
+	public void setLivroId(Livro livro) {
+		this.livro = livro;
 	}
 
 	public LocalDate getDataEmprestimo() {
