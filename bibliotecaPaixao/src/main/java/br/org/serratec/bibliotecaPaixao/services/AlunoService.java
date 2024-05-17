@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.org.serratec.bibliotecaPaixao.entities.Aluno;
 import br.org.serratec.bibliotecaPaixao.repositories.AlunoRepository;
+import jakarta.transaction.Transactional;
 @Service
 public class AlunoService {
 
@@ -28,6 +29,8 @@ public class AlunoService {
 	public Aluno findById(Integer id) {
 		return alunoRepository.findById(id).orElse(null);
 	}
+	
+	@Transactional
 	public Aluno deleteById(Integer id) {
 		var aluno0 = findById(id);
 		try {

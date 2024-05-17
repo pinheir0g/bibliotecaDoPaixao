@@ -2,7 +2,9 @@ package br.org.serratec.bibliotecaPaixao.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,6 +16,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "perfil")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "perfilID", scope = Perfil.class)
 public class Perfil {
 
 	@Id
@@ -27,7 +30,6 @@ public class Perfil {
 	@Column(name = "descricao")
 	private String descricao;
 
-	@JsonIgnore
 	@OneToMany(mappedBy = "perfil")
 	private List<Usuario> usuarios;
 

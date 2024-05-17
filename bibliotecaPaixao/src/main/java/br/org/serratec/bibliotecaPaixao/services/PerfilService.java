@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import br.org.serratec.bibliotecaPaixao.entities.Perfil;
 import br.org.serratec.bibliotecaPaixao.repositories.PerfilRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class PerfilService {
@@ -42,6 +44,7 @@ public class PerfilService {
 		return perfil;
 	}
 
+	@Transactional
 	public Perfil deleteById(Integer id) {
 		Perfil perfil = perfilRepository.findById(id).orElse(null);
 		try {

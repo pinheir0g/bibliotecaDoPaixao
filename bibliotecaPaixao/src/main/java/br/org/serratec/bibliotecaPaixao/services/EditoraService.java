@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import br.org.serratec.bibliotecaPaixao.entities.Editora;
 import br.org.serratec.bibliotecaPaixao.repositories.EditoraRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class EditoraService {
@@ -41,7 +43,9 @@ public class EditoraService {
 		}
 		return editoraExcluido;
 	}
-
+	
+	
+	@Transactional
 	public Editora deleteById(Integer id) {
 		Editora editoraExcluido = editoraRepository.findById(id).orElse(null);
 		try {

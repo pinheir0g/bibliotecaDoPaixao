@@ -1,12 +1,13 @@
 package br.org.serratec.bibliotecaPaixao.services;
 
-import br.org.serratec.bibliotecaPaixao.entities.Livro;
-import br.org.serratec.bibliotecaPaixao.repositories.LivroRepository;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import br.org.serratec.bibliotecaPaixao.entities.Livro;
+import br.org.serratec.bibliotecaPaixao.repositories.LivroRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class LivroService {
@@ -42,6 +43,8 @@ public class LivroService {
 		}
 		return livro0;
 	}
+	
+	@Transactional
 	public Livro deleteById(Integer id) {
 		Livro livro = livroRepository.findById(id).orElse(null);
 		try {
